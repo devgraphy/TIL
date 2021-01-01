@@ -14,3 +14,34 @@
         * `git checkout login` : 이동 
         * `git checkout -b login` : 생성하면서 바로 이동
 
+
+
+
+
+##### 기본 branch master -> main으로 변경(+get 버전 업그레이드)
+
+git 2.28.0 버전부터 직접 설정으로 통해 git의 기본 branch를 변경할 수 있다.
+
+먼저 git 버전을 최신 버전으로 업그레이드하는 방법을 소개한다.
+
+```bash
+sudo add-apt-repository ppa:git-core/ppa -y
+sudo apt-get update
+sudo apt-get install git -y
+```
+
+
+
+그 다음, `git config --global` 명령어를 통해 `init.defaultBranch`를 main으로 설정한다.
+
+```bash
+git config --global init.defaultBranch main
+```
+
+직접 ~/.gitconfig에 다음을 추가해도 된다.
+
+`````bash
+[init]
+  defaultBranch = main
+`````
+
