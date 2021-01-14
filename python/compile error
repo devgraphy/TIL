@@ -1,0 +1,15 @@
+
+
+# UnboundLocalError
+
+```python
+index = 0
+def register(student):
+    index = index + 1          
+    
+    # error: index is unbound(UnboundLocalError: local variable 'index' referenced before assignment)
+```
+
+
+
+`#` 해결책: 전역 변수를 지역 변수 내에서 사용하고 싶다면 `global` 키워드를 사용하여 지역 내에서 해당 변수를 선언해야 한다.
