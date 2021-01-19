@@ -26,20 +26,25 @@ Current thread 0x00004a4c (most recent call first):
 
 `#` 해결책: 
 
-1. File - Preferences - Settings
+* 수동 path 추가
 
-2. python.pythonpath 검색
+  1. File - Preferences - Settings
 
-3. `python` -> <변경할 파이썬 위치>
+  2. python.pythonpath 검색
 
-   ![image-20210114222830814](images/image-20210114222830814.png)
+  3. `python` -> <변경할 파이썬 위치>
 
-4. VSCode 재실행
-5. `python`명령어로 실행하는 것과 VSCode 상에서 오른쪽 상단의  실행 버튼의 결과가 다르다면,
-   * 시스템 환경 변수 - path 에서 python 과 관련된 변수를 삭제한다. (이 경우, 자동적으로 python.exe의 위치를 변경한다. 여러 버전이 있을 경우 문제가 될 수 있다.)
-   * VSCode 상에 python interpreter path로 설정한 주소를 시스템 환경 변수의 path에 똑같이 등록시켜준다. (권장)
+  4. <img src="images/image-20210114222830814.png" alt="image-20210114222830814" style="zoom:50%;" />
+
+  5. VSCode 재실행
+
+  6. `python`명령어로 실행하는 것과 VSCode 상에서 오른쪽 상단의  실행 버튼의 결과가 다르다면,
+
+     * 시스템 환경 변수 - path 에서 python 과 관련된 변수를 삭제한다. (이 경우, 자동적으로 python.exe의 위치를 변경한다. 여러 버전이 있을 경우 문제가 될 수 있다.)
+
+     * VSCode 상에 python interpreter path로 설정한 주소를 시스템 환경 변수의 path에 똑같이 등록시켜준다. (권장)
 
 
 
-
+* 삭제하고 재설치 중에 path 추가 설정하기
 
