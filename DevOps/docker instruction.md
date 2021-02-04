@@ -1,128 +1,3 @@
-툴체인
-
-협업 툴
-
-형상관리 툴
-
-CI/CD 운영환경에 배포하는 데 필요한 툴
-
-
-
-
-
-기존 인프라 담당자가 DEVOPS로 커리어 패스를 발전시킴
-
-DEVOPS 문화를 잘 적용하기 위해선
-
----
-
-# 1.1시스템 기반의 기초 지식
-
-   
-
-온프레미스:
-
-퍼블릭 클라우드
-
-프라이빗 클라우드
-
-
-
-
-
----
-
-# 1.2하드웨어와 네트워크 기초 지식
-
-
-
-
-
-
-
-
-
-
-
-인터넷을 사용할 때 보안을 위해서 가장 먼저 도입하는 것은 방화벽 제품
-
-방화벽에 비정상적 패턴이 등록되어 있고, 이러한 패턴이 많이 등록되어 있는 것이 좋은 제품
-
-방화벽은 하드웨어, 소프트웨어적으로 모두 존재한다.
-
-방화벽은 L7, L4, L2 레이어 등에 포함된다.
-
-1. 패킷필터형
-2. 애플리케이션 게이트웨이형(프록시서버)
-   * 애플리케이션 프로토콜 레벨에서 외부와의 통신을 대체 제어
-   * 프록시: 프록시 서버에서 걸러서 보내주는 필터 역할
-
-
-
-
-
-허니팟
-
-웹 어플리케이션 방화벽
-
-
-
-라우터/레이어 3 스위치
-
-라우터는 LAN구축에 필요한 장비(3계층)
-
-
-
-
-
-
-
-
-
-# 1.3 OS(Linux) 기초지식
-
-# 1.4미들웨어 기초 지식
-
-1. 웹 서버, 웹 애플리케이션 서버
-
-2. 데이터베이스 서버
-
-SQLite는 기업용 DBMS는 아님
-
-실무에서 많이 사용되고 있는 DB는 Oracle(공공쪽),
-
-3. 모니터링 툴
-
-HA, FTS 서비스를 제공에 도움
-
-
-
-# 1.5 인프라 구성 관리 기초 지식
-
-* OS의 시작을 자동화하는 툴: Vagrant
-  * 컨테이너 기반의 도커를 사용하므로 우리는 사용 x
-* 여러 서버의 관리를 자동화하는 툴(오케스트레이션): Kubernetes
-
----
-
-CI/CD
-
-이를 위한 툴로 Jenkins 을 사용한다.
-
----
-
-원래 컨테이너 개념이 있었음.
-
-리눅스기반의 컨테이너가 원래 존재했었가 도커가 오픈소스로 표준으로 자리잡은 것
-
-컨테이너를 배포하면 같은 환경에서 CI/CD하기가 편해짐
-
----
-
-예전에는 리눅스를 설치한 후 도커를 사용했어야 함
-
-윈도우 입장에서는 가상화를 쓰는 것과 별 차이가 없었음
-
 
 
 ---
@@ -186,26 +61,26 @@ official image는 믿을만함
 
 `alpine`:도커 이미지로 경량화로 제공하는 것을 나타내는 태그
 
-## 이미 조작 명령어
+## 이미지 조작 명령어
 
 
 
 ### 이미지 다운로드
 
 ```shell
+# 도커 레포지토리(hub.docker.com)에서 이미지를 가져오는 명령어
 docker (image) pull [옵션] 이미지명[:태그명]
 ```
 
 ![image-20210203131852047](images/image-20210203131852047.png)
 
-* docker registry(default:docker hub)에 로그인 상태여야 한다.
 * 태그 안 붙이면 디폴트는 LTS
 * LTS 가 없으면 해당 이미지의 홈페이지에서 다운로드
 
 ### 이미지 목록 표시
 
 ```sh
-docker image ls [옵션] [레포지토리명]
+docker image ls <옵션> <레포지토리명>
 docker images
 ```
 
@@ -216,7 +91,7 @@ docker images
 ### 이미지 상세 정보 확인
 
 ```shell
-docker image inspect [이미지명:태그명]
+docker image inspect <이미지명:태그명>
 ```
 
 * 키:값 형태의 JSON으로 반환
@@ -227,7 +102,7 @@ docker image inspect [이미지명:태그명]
 ### 이미지 삭제
 
 ```shell
-docker rmi [이미지명:태그명]
+docker rmi <이미지명:태그명>
 # 보통 container가 생략된 것. 단순히 rm을 적어줄 경우 container를 삭제함.
 # image를 삭제하는 rmi를 사용
 ```
@@ -239,8 +114,8 @@ docker rmi [이미지명:태그명]
 ### 이미지 생성
 
 ```shell
-docker build -t 이미지명[:태그명] dockerfile경로
-docker build -t dockerhub_ID/이미지명[:태그명] # docker hub에 공유할 경우
+docker build -t <이미지명><:태그명> <dockerfile경로>
+docker build -t <docker id>/<이미지명><:태그명> # docker hub에 공유할 경우
 ```
 
 * 태그명 생략하면 디폴트는 LTS
@@ -250,8 +125,8 @@ docker build -t dockerhub_ID/이미지명[:태그명] # docker hub에 공유할 
 ### 이미지 공유
 
 ```shell
-docker image push 이미지명[:태그명]
-docker image push docker_ID/이미지명[:태그명]
+docker image push <이미지명><:태그명>
+docker image push <docker id>/<이미지명><:태그명>
 ```
 
 
@@ -260,7 +135,16 @@ docker image push docker_ID/이미지명[:태그명]
 
 ## 컨테이너 조작 기본 명령
 
-### 생성
+### 컨테이너 리스트 보기
+
+```shell
+# 실행 중이거나 종료된 모든 컨테이너를 보여준다.
+docker ps -a
+```
+
+
+
+### 컨테이너 생성
 
 ```sh
  docker (container) create
@@ -268,10 +152,11 @@ docker image push docker_ID/이미지명[:태그명]
 
 
 
-### 생성(create), 시작(start)
+### 컨테이너 생성(create), 시작(start)
 
 ```sh
 docker (container) run
+docker run --name nodetest -p 9000:3000 beaican530/hellonode:1
 ```
 
 
@@ -284,40 +169,86 @@ docker (container) start
 
 
 
-### 정지
+### 컨테이너 접속
 
 ```shell
-docker (container) stop
+# 실행 중인 컨테이너에 접속한다.
+docker exec -it <container id> bash
 ```
 
 
 
-### 삭제
-
-```sh
-docker (container) rm
-```
-
-
-
-### 컨테이너 터미널 사용
+### 컨테이너 정지
 
 ```shell
-docker exec -it [터미널명] [shell이름]
+# 실행중인 컨테이너를 멈춘다.
+docker (container) stop <container id>
 ```
 
-### 컨테이너 실행 상태 확인
+
+
+### 컨테이너 죽이기
+
+```shell
+# 실행을 즉시 중지하여 컨테이너를 종료한다.
+# docker stop은 컨테이너를 정상적으로 종료할 시간을 제공한다.
+# docker kill은 컨테이너를 중지하는 데 너무 많은 시간이 걸리는 상황에서 컨테이너를 종료할 수 있다.
+docker kill <container id>
+```
+
+
+
+### 컨테이너 삭제
 
 ```sh
-docker ps		# 실행 중인 컨테이너 표시
-docker ps -a	# 실행 여부 상관없이 상태 표시
+docker (container) rm <container id>
 ```
 
 
 
----
+### 기존 컨테이너 변경하여 이미지 생성하기(이 방식으로 변경사항 적용X)
 
-운영체제 컨테이너 생성시 포트는 필요 없음
+```sh
+docker exec -it nodetest /bin/bash			# nodetest: 컨테이너명
+t:apt-get update | apt-get install -y vim
+t:vi app.js		# 수정, 저장
+t:exit
+# 기존 이미지는 변경되지 않은 상태
+
+# 로컬 시스템에서 변경된 컨테이너의 새로운 이미지를 생성한다.
+docker commit <container id> <username/imagename>
+docker commit nodetest beaican530/hellonod:2
+```
+
+![image-20210204104321138](images/image-20210204104321138.png)
+
+![image-20210204104503399](images/image-20210204104503399.png)
+
+
+
+### 도커 허브 레포티토리에 로그인
+
+```
+docker login
+```
+
+
+
+
+
+
+
+CI/CD를 자동화해서 운영함
+
+공유한 깃에 등록. dockerfile config가 등록되어 있음. 젠킨스에서 자동화하도록 스크립트 작성.
+
+개발자는 build. 
+
+
+
+
+
+제 컨테이너 생성시 포트는 필요 없음
 
 지금 포트포워딩 필요는 없음
 
