@@ -9,6 +9,7 @@
 
 - `EC2 key pair`: private key와 public key로 구성된 key pair는 인스턴스에 연결할 때 자격 증명 입증에 사용하는 보안 자격 증명 집합이다. Amazon EC2는 public key를 저장하고 사용자는 private key를 저장한다. 암호 대신 private key를 사용하여 인스턴스에 안전하게 액세스할 수 있다. private key를 소유하는 사람은 누구나 인스턴스에 연결할 수 있으므로 보안된 위치에 private key를 저장해 두는 것이 중요하다.
 - `provisioning`: 사용자 요구에 맞게 시스템 자원을 할당, 배치, 배포해두었다가 필요 시 시스템을 즉시 사용할 수 있는 상태로 미리 준비해두는 것
+- `deploying`: 
 
 
 
