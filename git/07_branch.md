@@ -59,3 +59,25 @@ git_branch() {
 export PS1="\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] \$(git_branch)\$ "
 ```
 
+
+
+# ERROR ISSUE
+
+## Unlink of file 'xxx' failed. Should I try again?
+
+```
+$ git checkout dev
+Unlink of file 'contest/db.sqlite3' failed. Should I try again? (y/n) y
+warning: unable to unlink 'contest/db.sqlite3': Invalid argument
+Updating files: 100% (6182/6182), done.
+Switched to a new branch 'dev'
+Branch 'dev' set up to track remote branch 'dev' from 'origin'.
+```
+
+해결책: untracked files을 제거한다.
+
+gitigonore, commit, untracked files 삭제를 하는 방법이 있다.
+
+파일 삭제: `git clean -f`
+
+디렉터리 삭제: `git clean -fd`

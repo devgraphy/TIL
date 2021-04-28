@@ -3,9 +3,20 @@
 
 
 1. 프로젝트 폴더 아래에서 터미널에 `python -m venv <가상환경 이름>` 을 입력한다.
-2. python interpreter 에서 가상환경 명이 적힌 것을 선택해준다. 없으면 해당 activate.bat 파일이 있는 루트에서 python.exe 파일을 등록한다.
+
+   ![image-20210131145126390](images/image-20210131145126390.png)
+
+2. `./venv/Scripts/activate.bat` 실행
+
+3. ![image-20210131145220228](images/image-20210131145220228.png)
+
+4. python interpreter 에서 해당 python 버전과 일치하는 가상환경 인터프리터이 생성되었는지 확인
+
+5. ![image-20210131145103078](images/image-20210131145103078.png)
 
 
+
+virtualenv venv 로 가상환경 디렉터리 생성
 
 
 

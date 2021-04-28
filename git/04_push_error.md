@@ -1,5 +1,3 @@
-# 04. Push Error
-
 ## pull을 빠뜨린 경우
 
 * (원격에서 d를 추가 하여, 현재 내 로컬에선 d가 없는 경우) e를 `commit` 합니다.
@@ -63,3 +61,26 @@ Merge made by the 'recursive' strategy.
 
 ```
 
+
+
+
+
+```
+$ git push origin main
+fatal: 'origin' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+```
+
+## non-fast-forward
+
+![image-20210420141644691](images/image-20210420141644691.png)
+
+발생 배경: push -> error: failed to push some refs to ''
+
+원인:
+
+해결책: `git push origin +main` 처럼 브랜치 앞에 `+` 명시

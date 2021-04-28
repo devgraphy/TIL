@@ -1,0 +1,1 @@
+![SmartSelect_20210301-103925_Samsung Notes](images/SmartSelect_20210301-103925_Samsung%20Notes.jpg)
